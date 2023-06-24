@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Detail about tools used in
+
+To get more detial about see the following pages 
+1- (https://sass-lang.com/) for sass
+2- (https://en.bem.info/) for bem
+2- (https://material.io/design/color/the-color-system.html#tools-for-picking-colors) for color picking material design
+3-
