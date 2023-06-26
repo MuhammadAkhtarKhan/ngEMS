@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngEMS';
+  constructor(private router: Router){
+console.log(router.url)
+  }
 }

@@ -1,20 +1,37 @@
 <div class="layout">
-  <div class="sidebar pull-left" [ngClass]="{'sidebar-max': isShowFullMenu}" *ngIf="true" (mouseenter)="showFullMenu()"
+  <div class="sidebar pull-left" [ngClass]="{'sidebar-max': isShowFullMenu}" (mouseenter)="showFullMenu()"
     (mouseleave)="hideFullMenu()">
     <div class="app-logo">
       <div [ngClass]="{small: !isShowFullMenu, full:isShowFullMenu}"></div>
     </div>
     <div class="menu">
       <div class="item-group" [ngClass]="{'link-active':isHomeGroupActive && !isShowFullMenu}">
-        <a routerLink="#" [ngClass]="{'link-active':isHomeGroupActive && isShowFullMenu}"
-        class="line-height-50"
-        >
-        <img src="../../../../assets/images/home.svg" alt="Home">
-        <label *ngIf="isShowFullMenu" class="group-label">Home</label>
+        <a routerLink="home" [ngClass]="{'link-active':isHomeGroupActive && isShowFullMenu}" class="line-height-50">
+          <!-- <img src="../../../../assets/images/home.svg" alt="Home"> -->
+          <label *ngIf="isShowFullMenu" class="group-label">Home</label>
 
         </a>
       </div>
-    </div>
 
+      <div class="item-group" [ngClass]="{'link-active':isAdminGroupActive && !isShowFullMenu}">
+        <a id="admin" (click)="isAdminCollapsed=!isAdminCollapsed"
+          [ngClass]="{'link-active':isHomeGroupActive && isShowFullMenu}" class="line-height-50">
+          <label class="group-label" *ngIf="isShowFullMenu">
+            {{'Administration'}}
+          </label>
+          <i *ngIf="isAdminCollapsed && isShowFullMenu" class="fa fa-angle-right arrow pull-right"></i>
+          <i *ngIf="!isAdminCollapsed && isShowFullMenu" class="fa fa-angle-down arrow pull-right"></i>
+        </a>
+
+
+
+      </div>
+      <div class="items animated fadeIn itemsbox" [ngbCollapse]="isAdminCollapsed" *ngIf="isShowFullMenu">
+        <a id="cast" routerLink="manage_cast" routerLinkActive="link-active">
+          <label>Manage Casts</label>
+        </a>
+      </div>
+
+    </div>
   </div>
 </div>

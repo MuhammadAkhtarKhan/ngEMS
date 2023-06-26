@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
   isHomeGroupActive:boolean=true;
+  isAdminGroupActive:boolean=true;
+  isAdminCollapsed:boolean=true;
   isShowFullMenu:boolean=false;
   constructor() { }
 
