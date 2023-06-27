@@ -26,7 +26,7 @@ import { ChartsModule } from './shared';
 import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const APP_DATE_FORMATS: MatDateFormats = {
   parse: {
@@ -46,6 +46,7 @@ const APP_DATE_FORMATS: MatDateFormats = {
     BrowserModule,
     ChartsModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AppLayoutModule,
     AppRoutingModule,

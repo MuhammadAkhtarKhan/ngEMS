@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,18 +8,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  userName:string=""
-  password:string=""
+  loginForm:FormGroup;
+
   /**
    *
    */
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private fb:FormBuilder
+    ) {
    console.log(router.url)
+  this.loginForm= this.fb.group({
+    userName:[null,[Validators.required,Validators.minLength(4)]],
+    password:[null,[Validators.required]],
+   })
 
   }
+  // get username() { return this.loginForm.get('userName'); }
+  // get password() { return this.loginForm.get('password'); }
   onClickLogin(){
-    console.log('userName ' +this.userName)
-    console.log('password ' +this.password)
+    console.log(this.loginForm)
+
   }
 
 }
