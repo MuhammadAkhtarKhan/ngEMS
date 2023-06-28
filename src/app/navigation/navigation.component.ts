@@ -34,6 +34,9 @@ export class NavigationComponent implements OnInit {
     //       this.user = null;
     //   }
     // );
+    this.user={
+      userName:'Akhtar Khan'
+    }
   }
 
   logout() {

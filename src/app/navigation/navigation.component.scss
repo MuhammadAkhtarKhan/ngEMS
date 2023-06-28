@@ -1,4 +1,5 @@
 @import '../../styles/colors.scss';
+
 .sidenav-container {
   height: 100%;
 }
@@ -10,11 +11,11 @@
   }
 .sidenav {
   width: 200px;
-  background-color:gainsboro ;
+  background-color:#dcdcdc ;
 }
 mat-toolbar{
   height: 7%;
-    background: gainsboro;
+  background: #3f51b5;
 }
 
 .sidenav .mat-toolbar {
@@ -39,57 +40,52 @@ mat-toolbar{
   margin-top: auto;
   vertical-align:middle;
 }
-::ng-deep.example-spacer {
+::ng-deep .example-spacer {
   flex: 1 1 auto;
   text-align: right;
 }
 
-:host ::v-deep a .mat-list-item{
+ ::ng-deep a .mat-list-item{
+  color: #fff;
+  //background: #3f51b5;
+}
+ ::ng-deep .mat-drawer-inner-container{
   color: #fff;
   background: #3f51b5;
 }
- ::v-deep .mat-drawer-inner-container{
-  color: #fff;
-  background: #3f51b5;
-}
-:host ::v-deep .mat-toolbar{
+::ng-deep .mat-toolbar{
   color: #fff;
 }
-:host ::v-deep .mat-expansion-panel-header{
-  color: #fff;
-  background: #3f51b5;
-}
-
-:host ::v-deep .mat-expansion-panel{
+::ng-deep .mat-expansion-panel-header{
   color: #fff;
   background: #3f51b5;
 }
 
-:host ::v-deep .mat-expansion-panel-header-title{
+::ng-deep .mat-expansion-panel{
   color: #fff;
+  background: #3f51b5;
 }
 
-:host ::v-deep .mat-expansion-indicator::after{
-  color: white;
+::ng-deep .mat-expansion-panel-header-title{
+  color: #ffff;
 }
 
-:host ::v-deep .mat-list-item-content:hover{
+::ng-deep .mat-expansion-indicator::after{
+  color: #ffff;
+}
+
+::ng-deep .mat-list-item-content:hover{
   background: darkblue;
-  color: white;
+  color: #ffff;
 }
 
-:host ::v-deep .mat-expansion-panel-header:hover{
+::ng-deep .mat-expansion-panel-header:hover{
   background: darkblue;
-  color: white;
+  color: #ffff;
 }
-:host ::v-deep .mat-expansion-panel:hover{
-  background: darkblue;
-  color: white;
+::ng-deep .mat-expansion-panel:hover{
+  background: lightblue;
+  color: #ffff;
 }
-
-:host ::v-deep mat-panel-title:hover{
-  background: darkblue;
-}
-
 
 

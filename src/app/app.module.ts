@@ -27,6 +27,9 @@ import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
 
 const APP_DATE_FORMATS: MatDateFormats = {
   parse: {
@@ -48,7 +51,6 @@ const APP_DATE_FORMATS: MatDateFormats = {
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AppLayoutModule,
     AppRoutingModule,
     MatNativeDateModule,
     MatExpansionModule,
@@ -56,6 +58,8 @@ const APP_DATE_FORMATS: MatDateFormats = {
     MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
     NotificationModule.forRoot(),
 
   ],

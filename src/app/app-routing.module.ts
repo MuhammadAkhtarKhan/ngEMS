@@ -6,7 +6,8 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
-  {path:'login',component:LoginComponent}
+  {path:'login',component:LoginComponent},
+  {path: 'administration',  loadChildren: () => import('./components/administration/administration.module').then(m => m.AdministrationModule)}
 
 ];
 
