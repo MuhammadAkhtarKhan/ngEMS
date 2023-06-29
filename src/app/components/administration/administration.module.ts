@@ -5,6 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { AdministrationRoutingModule } from './administration-routing.module';
 import { ManageclassComponent } from './components/manageclass/manageclass.component';
 import { AddEditClassComponent } from './components/manageclass/add-edit-class.component';
+import { GenericModule } from '@app/generic/generic.module';
 
 
 
@@ -16,6 +17,7 @@ import { AddEditClassComponent } from './components/manageclass/add-edit-class.c
   imports: [
     CommonModule,
     MatIconModule,
+    GenericModule,
     AdministrationRoutingModule
   ]
 })

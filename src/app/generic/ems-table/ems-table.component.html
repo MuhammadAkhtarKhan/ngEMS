@@ -1,0 +1,122 @@
+<div class="card card-padding">
+  <div class="wrapContainer apl-table-s3">
+      <table [ngStyle]="{'width': ObjHeader.tableWidth}">
+          <thead>
+              <tr>
+                  <ng-container *ngIf="ObjHeader.showActionField">
+                      <ng-container *ngIf="ObjHeader.showActionFieldOnLeft">
+                          <th [ngStyle]="{'width': ObjHeader.actionWidth}" class="align-left"
+                              style="padding-left:5px">
+                              {{ "Action" | translation | async }}
+                          </th>
+                      </ng-container>
+
+                  </ng-container>
+                  <ng-container *ngFor="let header of ObjHeader.header; let i = index">
+                      <th [ngStyle]="{'width': header.fieldWidth}" [ngClass]="{ 'p-l-5': i === 0}">
+                          {{header.headerName}}
+                          <i class="fa fa-search " (click)="showSearchBar =! showSearchBar"></i>
+                      </th>
+                  </ng-container>
+                  <ng-container *ngIf="ObjHeader.showActionField">
+                      <ng-container *ngIf="!ObjHeader.showActionFieldOnLeft">
+                          <th [ngStyle]="{'width': ObjHeader.actionWidth}" class="align-right"
+                              style="padding-right:5px">
+                              {{ "Action" | translation | async }}
+                          </th>
+                      </ng-container>
+                  </ng-container>
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngIf="showSearchBar">
+                  <ng-container *ngIf="ObjHeader.showActionField">
+                      <ng-container *ngIf="ObjHeader.showActionFieldOnLeft">
+                          <td style="float:left" class="p-l-5">
+                              <button class="apl-btn btn-cancel m-l-5p m-t-3" (click)="resetPage()">
+                                  <i class="fa fa-redo"></i>
+                              </button>
+                          </td>
+                      </ng-container>
+                  </ng-container>
+                  <ng-container *ngFor="let header of ObjHeader.header; let i = index">
+                      <td *ngIf="header.searchType.date">
+                          <input type="none" [id]="[header.headerName]" container="body" name="startDate"
+                              ngbDatepicker #d1="ngbDatepicker" [placeholder]="[header.headerName]"
+                              class="datePicker w-83p" [(ngModel)]="searchText[header.searchByField]"
+                              data-date-format="DD MMMM YYYY" (focus)="d1.open()" />
+                          <i class="fa fa-search" (click)="filterMultipleColumn()"></i>
+                      </td>
+                      <td *ngIf="header.searchType.text">
+                          <input [placeholder]="[header.headerName]" type="text"
+                              [(ngModel)]="searchText[header.searchByField]"
+                              [disabled]="!header.isSearchAble"
+                              />
+                          <i *ngIf="header.isSearchAble" class="fa fa-search" (click)="filterMultipleColumn()"></i>
+                      </td>
+                      <td *ngIf="header.searchType.dropdown">
+                          <ng-select style="display: inline-grid;" class="w-83p" [placeholder]="[header.headerName]"
+                              [(ngModel)]="searchText[header.searchByField]" [items]="header.searchType.lstDropdown"
+                              [bindValue]="header.searchByField" bindLabel="attribValue" [multiple]="false">
+                          </ng-select> <i  class="fa fa-search" (click)="filterMultipleColumn()"></i>
+                      </td>
+
+                  </ng-container>
+
+                  <ng-container *ngIf="ObjHeader.showActionField">
+                      <ng-container *ngIf="!ObjHeader.showActionFieldOnLeft">
+                          <td style="float:right" class="p-r-5">
+                              <button class="apl-btn btn-cancel m-r-5p m-t-3" (click)="resetPage()">
+                                  <i class="fa fa-redo"></i>
+                              </button>
+                          </td>
+                      </ng-container>
+                  </ng-container>
+
+              </tr>
+              <tr *ngFor="let row of lstFilesUploaded; let i = index">
+                  <ng-container *ngIf="ObjHeader.showActionField">
+                      <ng-container *ngIf="ObjHeader.showActionFieldOnLeft">
+                          <td  class="align-left" style="padding-left:5px">
+                              <img class="icon_size"  (click)="editRequest(row)"
+                                  src="../../../../assets/images/edit_ico.svg " />
+                          </td>
+                      </ng-container>
+                  </ng-container>
+                  <ng-container *ngFor="let header of ObjHeader.header; let j = index">
+                      <td *ngIf="!header.searchType.date" [ngStyle]="{'padding-left': j==0?'5px':'0px'}">
+                          <label matTooltipPosition="above"
+                              [matTooltip]="row[header.fieldName]">{{row[header.fieldName]?.length > 40 ?
+                              row[header.fieldName].substring(0,40) + '...' : row[header.fieldName]}} </label>
+                      </td>
+                      <td *ngIf="header.searchType.date" [ngStyle]="{'padding-left': j==0?'5px':'0px'}">
+                          {{ row[header.fieldName] | date}}
+
+                      </td>
+                  </ng-container>
+                  <ng-container *ngIf="ObjHeader.showActionField">
+                      <ng-container *ngIf="!ObjHeader.showActionFieldOnLeft">
+                          <td class="align-right" style="padding-right:5px">
+                              <img class="icon_size" (click)="editRequest(row)"
+                                  src="../../../../assets/images/edit_ico.svg " />
+                          </td>
+                      </ng-container>
+                  </ng-container>
+
+              </tr>
+              <tr class="row100 no-data" *ngIf="lstFilesUploaded.length==0">
+                  No Data Found
+              </tr>
+
+          </tbody>
+      </table>
+
+  </div>
+
+
+
+  <app-pagination-component class="b-1p r-1p" *ngIf="pagination" [activePageNumber]="pagination.activePageNumber"
+      [maxPageCount]="pagination.maxPageCount" (onPageChange)="onPageChange($event)">
+    </app-pagination-component>
+</div>
