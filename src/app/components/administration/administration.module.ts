@@ -6,6 +6,7 @@ import { AdministrationRoutingModule } from './administration-routing.module';
 import { ManageclassComponent } from './components/manageclass/manageclass.component';
 import { AddEditClassComponent } from './components/manageclass/add-edit-class.component';
 import { GenericModule } from '@app/generic/generic.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 

@@ -1,4 +1,4 @@
-<div class="card card-padding">
+<div class="card card-padding" style="margin-top: 10px;">
   <div class="wrapContainer apl-table-s3">
       <table [ngStyle]="{'width': ObjHeader.tableWidth}">
           <thead>
@@ -7,13 +7,13 @@
                       <ng-container *ngIf="ObjHeader.showActionFieldOnLeft">
                           <th [ngStyle]="{'width': ObjHeader.actionWidth}" class="align-left"
                               style="padding-left:5px">
-                              {{ "Action" | translation | async }}
+                              {{ "Action" }}
                           </th>
                       </ng-container>
 
                   </ng-container>
                   <ng-container *ngFor="let header of ObjHeader.header; let i = index">
-                      <th [ngStyle]="{'width': header.fieldWidth}" [ngClass]="{ 'p-l-5': i === 0}">
+                      <th [ngStyle]="{'width': header.fieldWidth}" [ngClass]="{ 'padding-left': i == 0}">
                           {{header.headerName}}
                           <i class="fa fa-search " (click)="showSearchBar =! showSearchBar"></i>
                       </th>
@@ -21,8 +21,11 @@
                   <ng-container *ngIf="ObjHeader.showActionField">
                       <ng-container *ngIf="!ObjHeader.showActionFieldOnLeft">
                           <th [ngStyle]="{'width': ObjHeader.actionWidth}" class="align-right"
-                              style="padding-right:5px">
-                              {{ "Action" | translation | async }}
+                              style="padding-right:5px;">
+                              <span style="float: right;">
+                                {{ "Action" }}
+                              </span>
+
                           </th>
                       </ng-container>
                   </ng-container>
@@ -33,10 +36,8 @@
               <tr *ngIf="showSearchBar">
                   <ng-container *ngIf="ObjHeader.showActionField">
                       <ng-container *ngIf="ObjHeader.showActionFieldOnLeft">
-                          <td style="float:left" class="p-l-5">
-                              <button class="apl-btn btn-cancel m-l-5p m-t-3" (click)="resetPage()">
-                                  <i class="fa fa-redo"></i>
-                              </button>
+                          <td s style="float:left;padding-left:5px" >
+                                  <i class="fa fa-refresh" (click)="resetPage()"></i>
                           </td>
                       </ng-container>
                   </ng-container>
@@ -45,7 +46,7 @@
                           <input type="none" [id]="[header.headerName]" container="body" name="startDate"
                               ngbDatepicker #d1="ngbDatepicker" [placeholder]="[header.headerName]"
                               class="datePicker w-83p" [(ngModel)]="searchText[header.searchByField]"
-                              data-date-format="DD MMMM YYYY" (focus)="d1.open()" />
+                              data-date-format="DD MMMM YYYY" (click)="d1.toggle()" />
                           <i class="fa fa-search" (click)="filterMultipleColumn()"></i>
                       </td>
                       <td *ngIf="header.searchType.text">
@@ -67,9 +68,7 @@
                   <ng-container *ngIf="ObjHeader.showActionField">
                       <ng-container *ngIf="!ObjHeader.showActionFieldOnLeft">
                           <td style="float:right" class="p-r-5">
-                              <button class="apl-btn btn-cancel m-r-5p m-t-3" (click)="resetPage()">
-                                  <i class="fa fa-redo"></i>
-                              </button>
+                                <i class="fa fa-refresh" aria-hidden="true" (click)="resetPage()"></i>
                           </td>
                       </ng-container>
                   </ng-container>
@@ -78,9 +77,8 @@
               <tr *ngFor="let row of lstFilesUploaded; let i = index">
                   <ng-container *ngIf="ObjHeader.showActionField">
                       <ng-container *ngIf="ObjHeader.showActionFieldOnLeft">
-                          <td  class="align-left" style="padding-left:5px">
-                              <img class="icon_size"  (click)="editRequest(row)"
-                                  src="../../../../assets/images/edit_ico.svg " />
+                          <td  class="align-left" style="padding-left:5px; float: right;">
+                                  <i class="fa fa-pencil" (click)="editRequest(row)"></i>
                           </td>
                       </ng-container>
                   </ng-container>
@@ -97,9 +95,8 @@
                   </ng-container>
                   <ng-container *ngIf="ObjHeader.showActionField">
                       <ng-container *ngIf="!ObjHeader.showActionFieldOnLeft">
-                          <td class="align-right" style="padding-right:5px">
-                              <img class="icon_size" (click)="editRequest(row)"
-                                  src="../../../../assets/images/edit_ico.svg " />
+                          <td  style="padding-right:5px; float: right;">
+                            <i class="fa fa-pencil" (click)="editRequest(row)"></i>
                           </td>
                       </ng-container>
                   </ng-container>

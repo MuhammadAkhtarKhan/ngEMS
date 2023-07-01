@@ -34,7 +34,7 @@ tbody td{
   top: 0;
 }
 .wrapContainer{
-  height: 36rem;
+  height: 30rem;
   max-width: 90rem;       /* Just for the demo          */
   overflow-y: auto;    /* Trigger vertical scroll    */
   overflow-x: auto;  /* Trigger the horizontal scroll */
@@ -87,6 +87,15 @@ table tr:nth-child(even) {
 }
 table tr:nth-child(odd) {
   background-color: #ffffff !important;
+}
+.fa{
+  font-size: 15px;
+}
+.padding-left{
+  padding-left: 5px;
+}
+i{
+  cursor: pointer;
 }
 
 

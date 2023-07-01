@@ -1,47 +1,10 @@
 <div class="container wrapper">
-  <app-ems-table
-  [lstHeader]="header"
-  [lstData]="lstClasses"
-  (editedObject)="edit($event)"
-  (onPageChange)="onPageChange($event)"
-  (searchedText)="searchedText($event)"
-  ></app-ems-table>
-  <!-- <div class="row">
-    <div class="col-md-12">
-      <div class="inner">
-        <h3>Classes</h3>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Class Name</th>
-              <th scope="col">Class Abbreviation</th>
-              <th scope="col">Created On</th>
-              <th scope="col">Modified On</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let cls of lstClasses">
-              <th scope="row">{{cls.id}}</th>
-              <td>{{cls.className}}</td>
-              <td>{{cls.classAbreviation}}</td>
-              <td>{{cls.createdDate}}</td>
-              <td>{{cls.modifiedDate}}</td>
-              <td>
-                <button mat-icon-button title="edit classes"
-                  [routerLink]="['/classes/', cls.id]"><mat-icon>edit</mat-icon></button>
-                <button mat-icon-button title="edit classes" [routerLink]="['/classes/', cls.id]"><mat-icon
-                    aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></button>
-                <button mat-icon-button title="delete classes"
-                  (click)="deleteClass(cls)"><mat-icon>delete</mat-icon></button>
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div> -->
+  <div>
+    <h5>Manage Class</h5>
+  </div>
+  <div>
+    <button> <i class="fa fa-plus"></i> Create New</button>
+  </div>
+  <app-ems-table [lstHeader]="header" [lstData]="lstClasses" (editedObject)="edit($event)"
+    (onPageChange)="onPageChange($event)" (searchedText)="searchedText($event)"></app-ems-table>
 </div>
-

@@ -29,6 +29,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 
 const APP_DATE_FORMATS: MatDateFormats = {
@@ -44,7 +46,7 @@ const APP_DATE_FORMATS: MatDateFormats = {
 };
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavigationComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent, NavigationComponent,LoginComponent],
   imports: [
     BrowserModule,
     ChartsModule,
@@ -60,6 +62,7 @@ const APP_DATE_FORMATS: MatDateFormats = {
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatTooltipModule,
     NotificationModule.forRoot(),
 
   ],

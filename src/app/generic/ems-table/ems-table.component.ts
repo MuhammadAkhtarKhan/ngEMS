@@ -4,11 +4,13 @@ import { TableHeaderMain } from '../generic.model';
 import { HelperFunctionsServiceService } from '@app/services/common/helper-functions.service';
 import { PaginationModel } from '@app/models/common/pagination.model';
 import { AlertType } from '@app/models/common/alert.model';
+import { NgbDateAdapter, NgbDateNativeAdapter } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ems-table',
   templateUrl: './ems-table.component.html',
-  styleUrls: ['./ems-table.component.scss']
+  styleUrls: ['./ems-table.component.scss'],
+  providers: [{provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}]
 })
 export class EmsTableComponent {
 

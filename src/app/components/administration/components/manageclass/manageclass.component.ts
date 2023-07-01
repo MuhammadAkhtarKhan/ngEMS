@@ -12,22 +12,23 @@ export class ManageclassComponent {
   header: TableHeaderMain;
   constructor() {}
   ngOnInit() {
+
     this.header = {
       tableWidth: '100%',
-      actionWidth: '2%',
+      actionWidth: '5%',
       showActionField: true,
-      showActionFieldOnLeft: true,
+      showActionFieldOnLeft: false,
       header: [
         {
           headerName: 'Id',
           fieldName: 'id',
-          fieldWidth: '2%',
+          fieldWidth: '4%',
           searchByField: 'id',
           isSearchAble: true,
           searchType: { text: true, dropdown: false, date: false },
         },
         {
-          headerName: 'className',
+          headerName: 'class Name',
           fieldName: 'className',
           fieldWidth: '10%',
           searchByField: 'className',
@@ -35,7 +36,7 @@ export class ManageclassComponent {
           searchType: { text: true, dropdown: false, date: false },
         },
         {
-          headerName: 'classAbreviation',
+          headerName: 'class Abreviation',
           fieldName: 'classAbreviation',
           fieldWidth: '10%',
           searchByField: 'classAbreviation',
@@ -43,7 +44,7 @@ export class ManageclassComponent {
           searchType: { text: true, dropdown: false, date: false },
         },
         {
-          headerName: 'createdDate',
+          headerName: 'Created Date',
           fieldName: 'createdDate',
           fieldWidth: '10%',
           searchByField: 'createdDate',
@@ -51,7 +52,7 @@ export class ManageclassComponent {
           searchType: { text: false, dropdown: false, date: true },
         },
         {
-          headerName: 'modifiedDate',
+          headerName: 'Modified Date',
           fieldName: 'modifiedDate',
           fieldWidth: '10%',
           searchByField: 'modifiedDate',

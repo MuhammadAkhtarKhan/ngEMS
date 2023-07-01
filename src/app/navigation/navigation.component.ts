@@ -17,7 +17,6 @@ export class NavigationComponent implements OnInit {
     );
   user: any;
   @Input() isShowing: boolean=true;
-
   constructor(
     private breakpointObserver: BreakpointObserver,
     // private authService: AuthService
@@ -43,11 +42,6 @@ export class NavigationComponent implements OnInit {
     // this.authService.logout();
     this.isShowing=false;
   }
-  login(){
-    debugger;
-    this.isShowing=true;
-  }
-
 }
 
 

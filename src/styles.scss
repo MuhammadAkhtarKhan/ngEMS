@@ -1,24 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
-
+$fa-font-path: "../node_modules/font-awesome/fonts";
+@import "../node_modules/font-awesome/css/font-awesome.css";
 .display-inline{
   display: inline;
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-// mat-form-field {
-//     width: 100%;
-//   }
-//   mat-icon{
-//     color: #007bff;
-//   }
-//   h3,h2,h1{
-//     color: blue;
-//   }
-//   a{
-//     color: white;
-//   }
-//   a:hover{
-//     color: white;
-//     background:darkblue;
-//     text-decoration: none;
-//   }
+//scrollbar start here
+::-webkit-scrollbar{
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar:hover{
+  height: 8px;
+  width: 8px;
+}
+ ::-webkit-scrollbar-track{
+background: white;
+}
+ ::-webkit-scrollbar-thumb{
+background: linear-gradient(270deg, #313131, #1d1d1d);
+border-radius: 50px;
+}
+ ::-webkit-scrollbar-thumb:hover{
+background: black;
+width: 8px;
+}
+// scroll bar end here
+
+//button style
+button{
+  background: #3f51b5;
+  color: #ffff;
+  border: 2px solid blue;
+  border-radius: 5px
+}
+button:hover{
+  background: lightblue;
+  color: #ffff;
+  border: 2px solid lightblue;
+  border-radius: 5px
+}
+button:disabled,
+    button[disabled] {
+        cursor: not-allowed;
+          background: grey;
+          border: none;
+    }
+

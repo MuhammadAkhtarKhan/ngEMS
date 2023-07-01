@@ -14,7 +14,7 @@
   background-color:#dcdcdc ;
 }
 mat-toolbar{
-  height: 7%;
+  height: 44px;
   background: #3f51b5;
 }
 
@@ -84,6 +84,18 @@ mat-toolbar{
   color: #ffff;
 }
 ::ng-deep .mat-expansion-panel:hover{
+  background: lightblue;
+  color: #ffff;
+}
+#home{
+  text-decoration: none;
+  color: #ffff;
+}
+#home:hover{
+  color:white;
+  background: #3f51b5;
+}
+.selected-item{
   background: lightblue;
   color: #ffff;
 }
