@@ -3,8 +3,16 @@
     <h5>Manage Class</h5>
   </div>
   <div>
-    <button> <i class="fa fa-plus"></i> Create New</button>
+    <app-button [type]="type" (click)="onCreateNew()"> <i class="fa fa-plus"></i> Create New</app-button>
   </div>
-  <app-ems-table [lstHeader]="header" [lstData]="lstClasses" (editedObject)="edit($event)"
-    (onPageChange)="onPageChange($event)" (searchedText)="searchedText($event)"></app-ems-table>
+  <app-ems-table
+  [lstHeader]="header"
+  [lstData]="lstClasses"
+  [pagination]="pagination"
+  (editedObject)="edit($event)"
+  (onPageChange)="onPageChange($event)"
+  (searchedText)="searchedText($event)"
+  (refreshPage)="onRefreshPage($event)"
+  ></app-ems-table>
 </div>
+

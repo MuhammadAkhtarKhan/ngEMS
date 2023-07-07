@@ -1,0 +1,29 @@
+<div class="main-pagination">
+  <div class="container col-12">
+    <div class="wraper">
+      <div class="row">
+        <div *ngIf="pages.length>0" (click)="firstPage()" class="pagination-cell">
+          <p class="padding-text">First</p>
+        </div>
+        <div *ngIf="pages.length>0" (click)="previousPage()" class="pagination-cell">
+          <p class="padding-text">Prev</p>
+        </div>
+        <ng-container *ngFor="let pageNo of pages; let x=index">
+          <div (click)="onPageClick(pageNo)" class="pagination-cell" [class.pagination-cell-active]="pageNo==activePageNumber">
+            <p>{{pageNo}}</p>
+          </div>
+        </ng-container>
+
+        <div *ngIf="pages.length>0" (click)="nextPage()" class="pagination-cell">
+          <p class="padding-text">Next</p>
+        </div>
+
+        <div *ngIf="pages.length>0" (click)="lastPage()" class="pagination-cell">
+          <p class="padding-text">Last</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

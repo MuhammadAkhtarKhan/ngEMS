@@ -13,4 +13,4 @@ import { ButtonModule } from './button/button.module';
         ButtonModule
     ]
 })
-export class ButtonsModule { }
+export class MyButtonsModule { }

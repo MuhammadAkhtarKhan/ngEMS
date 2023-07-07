@@ -26,25 +26,11 @@ border-radius: 50px;
 background: black;
 width: 8px;
 }
-// scroll bar end here
+.ems-button-setting{
+  position: fixed !important;
+  right: 4%;
+  bottom: 1%;
+}
 
-//button style
-button{
-  background: #3f51b5;
-  color: #ffff;
-  border: 2px solid blue;
-  border-radius: 5px
-}
-button:hover{
-  background: lightblue;
-  color: #ffff;
-  border: 2px solid lightblue;
-  border-radius: 5px
-}
-button:disabled,
-    button[disabled] {
-        cursor: not-allowed;
-          background: grey;
-          border: none;
-    }
+
 

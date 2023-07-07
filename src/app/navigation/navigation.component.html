@@ -1,75 +1,83 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav  #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async ) === false" [opened]=isShowing>
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-accordion>
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <h6>Administration</h6>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <mat-nav-list>
-          <a mat-list-item [routerLink]="['administration/cast/']">Manage Cast</a>
-          <a mat-list-item  [routerLink]="['administration/class/']" routerLinkActive="selected-item">Manage Class</a>
-          <a mat-list-item [routerLink]="['administration/dept/']">Manage Department</a>
-          <a mat-list-item [routerLink]="['administration/exam/']">Manage Exam</a>
-          <a mat-list-item [routerLink]="['administration/edu/']">Manage Education</a>
-          <a mat-list-item [routerLink]="['administration/feetype/']">Manage Fee Type</a>
-          <a mat-list-item [routerLink]="['administration/leavetype/']">Manage Leave Type</a>
-          <a mat-list-item [routerLink]="['administration/subject/']">Manage Subject</a>
-          <a mat-list-item [routerLink]="['administration/marktotal/']">Manage Total Marks</a>
-          <a mat-list-item [routerLink]="['/group/']">Groups</a>
-          <a mat-list-item [routerLink]="['/classfee/']">Classes Fee</a>
-          <a mat-list-item [routerLink]="['/spfee/']">Special Fee</a>
-          <a mat-list-item [routerLink]="['/sections/']">Sections</a>
-        </mat-nav-list>
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <h6>Forms</h6>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <mat-nav-list>
-          <a mat-list-item [routerLink]="['/emp/']">Student Information</a>
-          <a mat-list-item [routerLink]="['/teachinfo/']">Teacher Information</a>
-          <a mat-list-item [routerLink]="['/feecollect/']">Fee Collection</a>
-          <a mat-list-item [routerLink]="['/groupchange/']">Group Change</a>
-          <a mat-list-item [routerLink]="['/promotion/']">Class Promotion</a>
-          <a mat-list-item [routerLink]="['/lschool/']">Left School</a>
-          <a mat-list-item [routerLink]="['/markssheet/']">Marks Sheet</a>
-        </mat-nav-list>
-      </mat-expansion-panel>
-    </mat-accordion>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar>
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon id="idMenu" aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
+<div class="main-navigation">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav  #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async ) === false" [opened]=isShowing>
+      <mat-toolbar></mat-toolbar>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+
+              <h6>
+                <i class="fa fa-cog" aria-hidden="true"></i>
+                Administration
+              </h6>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="['administration/cast/']" routerLinkActive="selected-item">Manage Cast</a>
+            <a mat-list-item  [routerLink]="['administration/class/']" routerLinkActive="selected-item">Manage Class</a>
+            <a mat-list-item [routerLink]="['administration/dept/']">Manage Department</a>
+            <a mat-list-item [routerLink]="['administration/exam/']">Manage Exam</a>
+            <a mat-list-item [routerLink]="['administration/edu/']">Manage Education</a>
+            <a mat-list-item [routerLink]="['administration/feetype/']">Manage Fee Type</a>
+            <a mat-list-item [routerLink]="['administration/leavetype/']">Manage Leave Type</a>
+            <a mat-list-item [routerLink]="['administration/subject/']">Manage Subject</a>
+            <a mat-list-item [routerLink]="['administration/marktotal/']">Manage Total Marks</a>
+            <a mat-list-item [routerLink]="['/group/']">Groups</a>
+            <a mat-list-item [routerLink]="['/classfee/']">Classes Fee</a>
+            <a mat-list-item [routerLink]="['/spfee/']">Special Fee</a>
+            <a mat-list-item [routerLink]="['/sections/']">Sections</a>
+          </mat-nav-list>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h6>Forms</h6>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="['/emp/']">Student Information</a>
+            <a mat-list-item [routerLink]="['/teachinfo/']">Teacher Information</a>
+            <a mat-list-item [routerLink]="['/feecollect/']">Fee Collection</a>
+            <a mat-list-item [routerLink]="['/groupchange/']">Group Change</a>
+            <a mat-list-item [routerLink]="['/promotion/']">Class Promotion</a>
+            <a mat-list-item [routerLink]="['/lschool/']">Left School</a>
+            <a mat-list-item [routerLink]="['/markssheet/']">Marks Sheet</a>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon id="idMenu" aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
 
 
 
-      <span ><a id ='home' [routerLink]="['/home']"> <i class="fa fa-home"></i> EMS</a></span>&nbsp;&nbsp;
-      <span class="example-spacer"></span>
-      <div>
-        <span>Welcome {{user.userName}}</span>&nbsp;&nbsp;
-        <span>
-          <button class="btn btn-primary" (click)="logout()" #tooltip="matTooltip"
-          matTooltip="Logout"
-          matTooltipPosition="above"
+        <span ><a id ='home' [routerLink]="['/home']"> <i class="fa fa-home"></i> EMS</a></span>&nbsp;&nbsp;
+        <span class="example-spacer"></span>
+        <div>
+          <span>Welcome {{user.userName}}</span>&nbsp;&nbsp;
+          <span>
+            <button class="btn btn-primary" (click)="logout()" #tooltip="matTooltip"
+            matTooltip="Logout"
+            matTooltipPosition="above"
 
-          > <i class="fa fa-sign-out"></i> </button>
-        </span>
+            > <i class="fa fa-sign-out"></i> </button>
+          </span>
+        </div>
+
+      </mat-toolbar>
+      <!-- Add Content Here -->
+      <div style="padding: 5px;">
+        <router-outlet></router-outlet>
       </div>
 
-    </mat-toolbar>
-    <!-- Add Content Here -->
-    <div style="padding: 10px;">
-      <router-outlet></router-outlet>
-    </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+<app-side-popup></app-side-popup>
 
-  </mat-sidenav-content>
-</mat-sidenav-container>

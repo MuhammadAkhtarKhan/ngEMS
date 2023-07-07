@@ -1,0 +1,396 @@
+
+  @import '../../../../styles/colors.scss';
+
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.48);
+      z-index: 1000;
+    }
+    .italic{
+      color:#0000;
+      span{
+        font-size: 14px;
+      }
+    }
+    .dialog{
+      height: 90%;
+      z-index: 10001;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+      overflow-y: visible;
+      overflow-x: visible;
+      width: 50%;
+      padding: 12px;
+      background: $tbl-tr-border;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+      border-radius: 6px 0 0 6px;
+      border-top: 7px solid $b-c-primary-light;
+    }
+    .dialog__close-btn{
+      background: $bg-c-primary-light;
+      font-size: 1.2em;
+      z-index: 1;
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: 0px;
+      right: 10px;
+    }
+    .container{
+      margin-top: 20px;
+    }
+    .dialog__close-btn:hover{
+      background-color: darkred;
+    }
+    .close-text{
+      margin: auto;
+      display: table;
+      color: white;
+    }
+    .popup-header{
+      color: $b-c-primary-light-hover;
+      font-size: 22px;
+      margin-left: 10px;
+      margin-top: 20px;
+
+    }
+    .animated {
+      animation-duration: 1s;
+      animation-fill-mode: both;
+  }
+  .slideInRight{
+    animation-name: slideInRight;
+  }
+
+  /*
+  Devices= laptop, desktop
+  screen= B/W 1025px to 1280px
+  */
+  @media (min-width:1025px) and (max-width:1280px) {
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.48);
+      z-index: 1000;
+    }
+    .italic{
+      color:#0000;
+      span{
+        font-size: 14px;
+      }
+    }
+    .dialog{
+      height: 90%;
+      z-index: 10001;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+      overflow-y: visible;
+      overflow-x: visible;
+      width: 50%;
+      padding: 12px;
+      background: $tbl-tr-border;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+      border-radius: 6px 0 0 6px;
+      border-top: 7px solid $b-c-primary-light;
+    }
+    .dialog__close-btn{
+      background: $bg-c-primary-light;
+      font-size: 1.2em;
+      z-index: 1;
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: 0px;
+      right: 10px;
+    }
+    .container{
+      margin-top: 20px;
+    }
+    .dialog__close-btn:hover{
+      background-color: darkred;
+    }
+    .close-text{
+      margin: auto;
+      display: table;
+      color: white;
+    }
+    .popup-header{
+      color: $b-c-primary-light-hover;
+      font-size: 22px;
+      margin-left: 10px;
+      margin-top: 20px;
+
+    }
+
+  }
+  /*
+  Devices= tablets, IPad(portrait)
+  screen= B/W 768px to 1024px
+  */
+  @media (min-width:768px) and (max-width:1024px) {
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.48);
+      z-index: 1000;
+    }
+    .italic{
+      color:#0000;
+      span{
+        font-size: 14px;
+      }
+    }
+    .dialog{
+      height: 90%;
+      z-index: 10001;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+      overflow-y: visible;
+      overflow-x: visible;
+      width: 60%;
+      padding: 12px;
+      background: $tbl-tr-border;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+      border-radius: 6px 0 0 6px;
+      border-top: 7px solid $b-c-primary-light;
+    }
+    .dialog__close-btn{
+      background: $bg-c-primary-light;
+      font-size: 1.2em;
+      z-index: 1;
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: 0px;
+      right: 10px;
+    }
+    .container{
+      margin-top: 20px;
+    }
+    .dialog__close-btn:hover{
+      background-color: darkred;
+    }
+    .close-text{
+      margin: auto;
+      display: table;
+      color: white;
+    }
+    .popup-header{
+      color: $b-c-primary-light-hover;
+      font-size: 1em;
+      margin-left: 10px;
+      margin-top: 20px;
+    }
+
+  }
+
+  @media (min-width:768px) and (max-width:1024px) and (orientation:landscape) {
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.48);
+      z-index: 1000;
+    }
+    .italic{
+      color:#0000;
+      span{
+        font-size: 14px;
+      }
+    }
+    .dialog{
+      height: 90%;
+      z-index: 10001;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+      overflow-y: visible;
+      overflow-x: visible;
+      width: 60%;
+      padding: 12px;
+      background: $tbl-tr-border;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+      border-radius: 6px 0 0 6px;
+      border-top: 7px solid $b-c-primary-light;
+    }
+    .dialog__close-btn{
+      background: $bg-c-primary-light;
+      font-size: 1.2em;
+      z-index: 1;
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: 0px;
+      right: 10px;
+    }
+    .container{
+      margin-top: 20px;
+    }
+    .dialog__close-btn:hover{
+      background-color: darkred;
+    }
+    .close-text{
+      margin: auto;
+      display: table;
+      color: white;
+    }
+    .popup-header{
+      color: $b-c-primary-light-hover;
+      font-size: 1em;
+      margin-left: 10px;
+      margin-top: 20px;
+    }
+
+  }
+    /*
+  Devices=Low resolution tablets, Mobile(landscape)
+  screen= B/W 481px to 767px
+  */
+  @media (min-width:481px) and (max-width:767px) {
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.48);
+      z-index: 1000;
+    }
+    .italic{
+      color:#0000;
+      span{
+        font-size: 14px;
+      }
+    }
+    .dialog{
+      height: 90%;
+      z-index: 10001;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+      overflow-y: scroll;
+      overflow-x: scroll;
+      width: 60%;
+      padding: 12px;
+      background: $tbl-tr-border;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+      border-radius: 6px 0 0 6px;
+      border-top: 7px solid $b-c-primary-light;
+    }
+    .dialog__close-btn{
+      background: $bg-c-primary-light;
+      font-size: 1.2em;
+      z-index: 1;
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: 0px;
+      right: 10px;
+    }
+    .container{
+      margin-top: 0px;
+    }
+    .dialog__close-btn:hover{
+      background-color: darkred;
+    }
+    .close-text{
+      margin: auto;
+      display: table;
+      color: white;
+    }
+    .popup-header{
+      color: $b-c-primary-light-hover;
+      font-size: 18px;
+      margin-left: 10px;
+      margin-top: 20px;
+    }
+
+  }
+    /*
+  Devices= Most of the smart phones and mobiles(portrait)
+  screen= B/W 320px to 479px
+  */
+  @media (min-width:320px) and (max-width:480px) {
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.48);
+      z-index: 1000;
+    }
+    .italic{
+      color:#0000;
+      span{
+        font-size: 14px;
+      }
+    }
+    .dialog{
+      height: 90%;
+      z-index: 10001;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+      overflow-y: scroll;
+      overflow-x: scroll;
+      width: 100%;
+      padding: 12px;
+      background: $tbl-tr-border;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+      border-radius: 6px 0 0 6px;
+      border-top: 7px solid $b-c-primary-light;
+    }
+    .dialog__close-btn{
+      background: $bg-c-primary-light;
+      font-size: 1.2em;
+      z-index: 1;
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: 0px;
+      right: 10px;
+    }
+    .container{
+      margin-top: 0px;
+    }
+    .dialog__close-btn:hover{
+      background-color: darkred;
+    }
+    .close-text{
+      margin: auto;
+      display: table;
+      color: white;
+    }
+    .popup-header{
+      color: $b-c-primary-light-hover;
+      font-size: 18px;
+      margin-left: 10px;
+      margin-top: 20px;
+    }
+
+  }
+
+

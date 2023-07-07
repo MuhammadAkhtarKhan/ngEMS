@@ -2,34 +2,27 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatListModule} from '@angular/material/list';
-import {MatMenuModule} from '@angular/material/menu';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Date
 import {
-  MatNativeDateModule,
   MatDateFormats,
   MAT_DATE_FORMATS,
   MAT_DATE_LOCALE,
 } from '@angular/material/core';
 import { NotificationModule } from './services/notification/notification.module';
 
-import { AppLayoutModule } from './layout/layout.module';
-import { ChartsModule } from './shared';
+
+import { ChartsModule, MyButtonsModule } from './shared';
+import {SidePopupModule} from './shared/popups/side-popup'
 import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import {MatTooltipModule} from '@angular/material/tooltip';
+
+import { MaterialModule } from './material/material.module';
+
 
 
 
@@ -53,16 +46,10 @@ const APP_DATE_FORMATS: MatDateFormats = {
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MaterialModule,
+    MyButtonsModule,
+    SidePopupModule,
     AppRoutingModule,
-    MatNativeDateModule,
-    MatExpansionModule,
-    MatListModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTooltipModule,
     NotificationModule.forRoot(),
 
   ],

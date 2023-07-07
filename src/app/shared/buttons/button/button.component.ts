@@ -7,7 +7,7 @@ export type ButtonType = 'button' | 'submit';
     styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnInit {
-
+@Input('disable') disable=false;
     @Input() type: ButtonType;
 
     constructor() {

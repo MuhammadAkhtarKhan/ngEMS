@@ -17,13 +17,15 @@ export class EmsTableComponent {
   @Input('canupdate') CAN_UPDATE = false;
   @Input('lstData') lstFilesUploaded: any[] = [];
   @Input('lstHeader') ObjHeader: TableHeaderMain;
+  @Input('pagination') pagination: PaginationModel;
   @Output('editedObject') editedObjectEvent: EventEmitter<any | null> = new EventEmitter();
   @Output('searchedText') searchedTextEvent: EventEmitter<any | null> = new EventEmitter();
-  @Output('onPageChange') onClickPageChange: EventEmitter<any | null> = new EventEmitter();
+  @Output('onPageChange') onClickPageChangeEvent: EventEmitter<any | null> = new EventEmitter();
+  @Output('refreshPage') refreshPage: EventEmitter<any | null> = new EventEmitter();
 
 
   searchText: any = {};
-  pagination: PaginationModel;
+
   activePageNo = 1;
   showSearchBar: boolean = false;
   obj = {};
@@ -47,6 +49,11 @@ export class EmsTableComponent {
 
 
   filterMultipleColumn() {
+  let request=this.searchTextFunc();
+    this.searchedTextEvent.emit(request);
+
+  }
+  searchTextFunc():any{
     var request = {};
     let serch = Object.assign({}, this.searchText)
     serch = this.helperFunc.removeEmptyKeysFromObject(serch)
@@ -79,8 +86,7 @@ export class EmsTableComponent {
 
 
     request["searchText"] = serch;
-    this.searchedTextEvent.emit(request);
-
+    return request;
   }
   validateMinMax(minValue: string, maxValue: string, key): string {
     let val = "";
@@ -103,21 +109,20 @@ export class EmsTableComponent {
   }
 
   onPageChange(event) {
-
-    this.notification.showLoading(true);
+debugger
     this.pagination.activePageNumber = event;
     this.activePageNo = event;
     var request = {}
     request['pageNo'] = this.pagination.activePageNumber;
     request['isPageLoad'] = 0;
-    if (!this.isValidData(this.searchText['searchText'])) {
-      request["searchText"] = this.searchText['searchText'];
-      request["filterColumn"] = this.searchText["filterColumn"];
+    //request['searchText']=this.searchTextFunc();
+    let searchedText=this.searchTextFunc();
+    if (!this.isValidData(searchedText['searchText'])) {
+      request["searchText"] = searchedText['searchText'];
     } else {
       request["searchText"] = "";
-      request["filterColumn"] = "";
     }
-    // this.getManualRequestData(request);
+     this.onClickPageChangeEvent.emit(request);
   }
   isValidData(data: string): boolean {
     if (data == "0") return false;
@@ -135,9 +140,9 @@ export class EmsTableComponent {
     request['pageNo'] = 1;
     request['isPageLoad'] = 1;
     request['searchText'] = "";
-    request['filterColumn'] = "";
     // request['date'] = this.helperFunc.convertDateToYearMonthAndDay(this.helperFunc.getNgbDatePickerFormatFromBackendFormat(new Date()));
     // this.getManualRequestData(request);
+    this.refreshPage.emit(request)
 
   }
 

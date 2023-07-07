@@ -110,10 +110,7 @@
       </table>
 
   </div>
-
-
-
-  <app-pagination-component class="b-1p r-1p" *ngIf="pagination" [activePageNumber]="pagination.activePageNumber"
-      [maxPageCount]="pagination.maxPageCount" (onPageChange)="onPageChange($event)">
-    </app-pagination-component>
 </div>
+<app-ems-pagination class="b-1p r-1p" *ngIf="pagination" [activePageNumber]="pagination.activePageNumber"
+[maxPageCount]="pagination.maxPageCount" (onPageChange)="onPageChange($event)">
+</app-ems-pagination>

@@ -5,19 +5,21 @@ import { FormsModule } from '@angular/forms';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MatIconModule } from '@angular/material/icon';
+import { EmsPaginationComponent } from './ems-pagination/ems-pagination.component';
 
 
 
 @NgModule({
   declarations: [
-    EmsTableComponent
+    EmsTableComponent,
+    EmsPaginationComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     NgSelectModule,
     NgbDatepickerModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports:[
     EmsTableComponent

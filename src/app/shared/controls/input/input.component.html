@@ -1,2 +1,13 @@
-<input type="text" class="app-input" [value]="value" [placeholder]="placeholder || ''"
-    [attr.disabled]="isDisabled ? true : null" (keyup)="onKeyup($event.target.value)" (blur)="onBlur()">
+
+  <div class="form-group">
+    <label [for]="inputId">{{label}}</label>
+    <input class="form-control" [class.invalid]="control.invalid && control.dirty &&control.touched"
+      [formControl]="control" [type]="type" [id]="inputId" />
+
+    <ng-container *ngIf="(control.invalid && control.dirty && control.touched) || (control.invalid && control.pristine && control.touched)  ">
+      <div *ngFor="let err of control.errors | keyvalue" class="error">
+        {{errorMessages[err.key] }}
+      </div>
+    </ng-container>
+  </div>
+

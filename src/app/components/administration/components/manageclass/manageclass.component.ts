@@ -1,17 +1,35 @@
 import { Component } from '@angular/core';
 import { Class } from './class.model';
 import { TableHeaderMain } from '@app/generic/generic.model';
-
+import { PaginationModel } from '@app/models/common/pagination.model';
+import { Router } from '@angular/router';
+import { SidePopupService } from '@app/shared/popups/side-popup/side-popup.service';
+import { AddEditClassComponent } from './add-edit-class.component';
+import { Contstants } from '@app/helper/constants';
+import { skipLast } from 'rxjs/internal/operators/skipLast';
+export type ButtonType = 'button' | 'submit';
 @Component({
   selector: 'app-manageclass',
   templateUrl: './manageclass.component.html',
   styleUrls: ['./manageclass.component.scss'],
 })
 export class ManageclassComponent {
+  type:ButtonType;
   lstClasses: Class[] = [];
   header: TableHeaderMain;
-  constructor() {}
+  pagination: PaginationModel;
+
+  constructor(
+    private router:Router,
+    private popupservice: SidePopupService
+    ) {
+    this.type='button'
+  }
   ngOnInit() {
+    this.pagination=new PaginationModel(
+      10,30
+    )
+    this.pagination.activePageNumber=1
 
     this.header = {
       tableWidth: '100%',
@@ -127,7 +145,14 @@ export class ManageclassComponent {
       },
     ];
   }
-  edit(event){
+  edit(event:Class){
+    event.isEdit=true;
+    this.popupservice.updateParams(event);
+    Contstants.popupHeader='Update Class';
+this.popupservice.updateComponent(AddEditClassComponent);
+this.popupservice.close.pipe(skipLast(1)).subscribe(val=>{
+  this.ngOnInit();
+})
     console.log(event)
   }
   search(event){
@@ -139,5 +164,19 @@ export class ManageclassComponent {
   searchedText(event){
     console.log(event)
   }
+  onRefreshPage(event){
+    console.log(event)
+  }
+  onCreateNew(){
+   let event={};
+    event['isEdit']=true;
+    this.popupservice.updateParams(event);
+    Contstants.popupHeader='Add Class';
+this.popupservice.updateComponent(AddEditClassComponent);
+this.popupservice.close.pipe(skipLast(1)).subscribe(val=>{
+  this.ngOnInit();
+
+  })
+}
 
 }

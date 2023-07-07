@@ -1,56 +1,28 @@
-import { Component, OnInit, forwardRef, Input, Output, EventEmitter } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import {FormControl, Validators } from '@angular/forms';
 
 @Component({
-    selector: 'app-input',
+    selector: 'ems-input',
     templateUrl: './input.component.html',
-    styleUrls: ['./input.component.scss'],
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => InputComponent),
-            multi: true
-        }
-    ]
+    styleUrls: ['./input.component.scss']
 })
-export class InputComponent implements OnInit, ControlValueAccessor {
-    @Input() placeholder: string="";
-    @Output() changed = new EventEmitter<string>();
+export class InputComponent implements OnInit {
 
-    value: string="";
-    isDisabled: boolean=false;
+@Input() inputId="";
+@Input() control=new FormControl();
+@Input() label="";
+@Input() type='text';
 
-    constructor() { }
+errorMessages:Record<string, string>={
+  required:'The field is required.',
+  email:'The e-mail is required.',
+}
+constructor(){
+}
+  ngOnInit(): void {
+this.control.valueChanges.subscribe(val=>{
+  console.log(this.control)
+})
+  }
 
-    ngOnInit(): void {
-    }
-
-    private propagateChange: any = () => { };
-    private propagateTouched: any = () => { };
-
-    writeValue(value: string): void {
-        this.value = value;
-    }
-
-    registerOnChange(fn: any): void {
-        this.propagateChange = fn;
-    }
-
-    registerOnTouched(fn: any): void {
-        this.propagateTouched = fn;
-    }
-
-    setDisabledState(isDisabled: boolean): void {
-        this.isDisabled = isDisabled;
-    }
-
-    onKeyup(value: string): void {
-        this.value = value;
-        this.propagateChange(value);
-        this.changed.emit(value);
-    }
-
-    onBlur(): void {
-        this.propagateTouched();
-    }
 }
